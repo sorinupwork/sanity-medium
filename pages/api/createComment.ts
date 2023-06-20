@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createClient } from "@sanity/client";
+import sanityClient from '@sanity/client'
 
 const config = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -8,7 +8,7 @@ const config = {
   token: process.env.SANITY_API_TOKEN,
 };
 
-const client = createClient(config);
+const client = sanityClient(config);
 
 export default async function createComment(
   req: NextApiRequest,
